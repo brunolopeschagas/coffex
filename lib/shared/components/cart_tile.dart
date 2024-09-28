@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:coffex/shared/consts.dart';
 import 'package:flutter/material.dart';
 
 import 'package:coffex/models/coffee.dart';
@@ -23,8 +24,18 @@ class CartTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
       child: ListTile(
         leading: Image.asset(coffee.imagePath),
-        title: Text(coffee.name),
-        subtitle: Text(coffee.price),
+        title: Text(
+          coffee.name,
+          style: TextStyle(
+            color: lightTextColor,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        subtitle: Text(
+          '\$ ${coffee.price.toString()}',
+          style: TextStyle(color: lightTextColor),
+        ),
         trailing: IconButton(
           onPressed: onPressed,
           icon: const Icon(Icons.delete),
